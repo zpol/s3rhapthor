@@ -1,5 +1,7 @@
 # S3Rapthor - AWS S3 Bucket Analyzer
 
+![S3Rapthor Logo](s3rhapthor.png)
+
 [![Go Version](https://img.shields.io/badge/Go-1.18+-blue.svg)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
