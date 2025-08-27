@@ -1,117 +1,117 @@
-# 🚀 S3Rapthor - AWS S3 Bucket Analyzer
+# S3Rapthor - AWS S3 Bucket Analyzer
 
 [![Go Version](https://img.shields.io/badge/Go-1.18+-blue.svg)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> **S3Rapthor** es una herramienta de análisis de buckets de AWS S3 que permite explorar, analizar y descargar contenido de buckets S3 públicos de manera eficiente.
+> **S3Rapthor** is an AWS S3 bucket analysis tool that allows you to explore, analyze, and download content from public S3 buckets efficiently.
 
-## 🎯 Características
+## Features
 
-- 🔍 **Análisis de Buckets**: Explora buckets S3 públicos y extrae información detallada
-- 📊 **Estadísticas de Archivos**: Genera estadísticas completas sobre tipos de archivos y extensiones
-- 💾 **Descarga Masiva**: Descarga automática de todos los archivos del bucket
-- 📁 **Organización**: Guarda todos los datos en una estructura organizada
-- 🎨 **Interfaz Colorida**: Salida con colores para mejor legibilidad
-- ⚡ **Rápido y Eficiente**: Escrito en Go para máximo rendimiento
+- **Bucket Analysis**: Explore public S3 buckets and extract detailed information
+- **File Statistics**: Generate comprehensive statistics about file types and extensions
+- **Bulk Download**: Automatic download of all bucket files
+- **Data Organization**: Save all data in an organized structure
+- **Colored Output**: Color-coded output for better readability
+- **Fast and Efficient**: Written in Go for maximum performance
 
-## 🛠️ Instalación
+## Installation
 
-### Prerrequisitos
+### Prerequisites
 
-- Go 1.18 o superior
+- Go 1.18 or higher
 - Git
 
-### Instalación desde el repositorio
+### Installation from Repository
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/s3Rapthor.git
-cd s3Rapthor
+# Clone the repository
+git clone https://github.com/zpol/s3rhapthor.git
+cd s3rhapthor
 
-# Instalar dependencias
+# Install dependencies
 go mod tidy
 
-# Compilar la herramienta
+# Build the tool
 go build -o s3Rapthor main.go
 ```
 
-### Instalación directa con Go
+### Direct Installation with Go
 
 ```bash
-go install github.com/tu-usuario/s3Rapthor@latest
+go install github.com/zpol/s3rhapthor@latest
 ```
 
-## 📖 Uso
+## Usage
 
-### Uso Básico
+### Basic Usage
 
 ```bash
-./s3Rapthor <URL_DEL_BUCKET_S3>
+./s3Rapthor <S3_BUCKET_URL>
 ```
 
-### Ejemplos
+### Examples
 
 ```bash
-# Analizar un bucket S3 público
-./s3Rapthor https://mi-bucket.s3.amazonaws.com/
+# Analyze a public S3 bucket
+./s3Rapthor https://my-bucket.s3.amazonaws.com/
 
-# Analizar bucket con contenido específico
-./s3Rapthor https://datos-publicos.s3.us-east-1.amazonaws.com/
+# Analyze bucket with specific content
+./s3Rapthor https://public-data.s3.us-east-1.amazonaws.com/
 ```
 
-### Parámetros
+### Parameters
 
-- `<URL_DEL_BUCKET_S3>`: URL completa del bucket S3 a analizar (requerido)
+- `<S3_BUCKET_URL>`: Complete URL of the S3 bucket to analyze (required)
 
-## 📁 Estructura de Salida
+## Output Structure
 
-La herramienta crea automáticamente un directorio `data/` con los siguientes archivos:
+The tool automatically creates a `data/` directory with the following files:
 
 ```
 data/
-├── nombre-bucket-s3_bucket.txt    # Información básica del bucket
-├── nombre-bucket-s3_bucket.xml    # Datos XML raw del bucket
-├── nombre-bucket-s3_bucket.brf    # Lista de URLs de archivos
-└── archivos_descargados/          # Archivos descargados (si se activa)
+├── bucket-name-s3_bucket.txt    # Basic bucket information
+├── bucket-name-s3_bucket.xml    # Raw XML bucket data
+├── bucket-name-s3_bucket.brf    # List of file URLs
+└── downloaded_files/            # Downloaded files (if enabled)
 ```
 
-## 📊 Funcionalidades
+## Functionality
 
-### 1. Análisis de Bucket
-- Verifica la accesibilidad del bucket
-- Extrae metadatos del bucket
-- Lista todos los objetos contenidos
+### 1. Bucket Analysis
+- Verifies bucket accessibility
+- Extracts bucket metadata
+- Lists all contained objects
 
-### 2. Estadísticas de Archivos
-- Cuenta total de archivos
-- Análisis por extensiones de archivo
-- Porcentajes de cada tipo de archivo
-- Destaca archivos potencialmente interesantes (PDF, DOC, etc.)
+### 2. File Statistics
+- Total file count
+- Analysis by file extensions
+- Percentages of each file type
+- Highlights potentially interesting files (PDF, DOC, etc.)
 
-### 3. Búsqueda de Archivos
+### 3. File Search
 ```bash
-# Buscar archivos por extensión
-grep '\.pdf' data/nombre-bucket-s3_bucket.brf
-grep '\.doc' data/nombre-bucket-s3_bucket.brf
-grep '\.zip' data/nombre-bucket-s3_bucket.brf
+# Search files by extension
+grep '\.pdf' data/bucket-name-s3_bucket.brf
+grep '\.doc' data/bucket-name-s3_bucket.brf
+grep '\.zip' data/bucket-name-s3_bucket.brf
 ```
 
-### 4. Descarga de Archivos
-La funcionalidad de descarga está comentada por defecto. Para activarla, descomenta la línea:
+### 4. File Download
+The download functionality is commented out by default. To enable it, uncomment the line:
 ```go
 download_all_files(brief_file)
 ```
 
-## 🎨 Salida de Ejemplo
+## Example Output
 
 ```
-🚀 S3Rapthor v0.0.9
+S3Rapthor v0.0.9
 
 ·	An AWS S3 bucket analyzer
 
->> [ 200 ] : https://mi-bucket.s3.amazonaws.com/
->> Bucket Name: mi-bucket
->> Bucket URL: https://mi-bucket.s3.amazonaws.com/
+>> [ 200 ] : https://my-bucket.s3.amazonaws.com/
+>> Bucket Name: my-bucket
+>> Bucket URL: https://my-bucket.s3.amazonaws.com/
 >> Total files: 1250
 >> Extension filetypes: 15
 >> Extension filetypes expanded:
@@ -122,52 +122,52 @@ download_all_files(brief_file)
 	.doc: 12 (0.96%)
 	...
 
->> Type: grep '\.ext' data/mi-bucket-s3_bucket.brf to search for an specific file extension
->> Example: grep '\.pdf' data/mi-bucket-s3_bucket.brf
+>> Type: grep '\.ext' data/my-bucket-s3_bucket.brf to search for an specific file extension
+>> Example: grep '\.pdf' data/my-bucket-s3_bucket.brf
 ```
 
-## 🔧 Configuración
+## Configuration
 
-### Variables de Entorno (Opcional)
+### Environment Variables (Optional)
 
 ```bash
 export AWS_REGION=us-east-1
 export AWS_PROFILE=default
 ```
 
-## 🚨 Consideraciones de Seguridad
+## Security Considerations
 
-- ⚠️ **Solo para buckets públicos**: Esta herramienta está diseñada para analizar buckets S3 públicos
-- 🔒 **Respeto por los datos**: Usa esta herramienta de manera ética y responsable
-- 📋 **Cumplimiento**: Asegúrate de cumplir con las políticas de uso de los datos
-- 🛡️ **Permisos**: Verifica que tienes autorización para acceder a los buckets
+- **Public Buckets Only**: This tool is designed to analyze public S3 buckets
+- **Data Respect**: Use this tool ethically and responsibly
+- **Compliance**: Ensure compliance with data usage policies
+- **Permissions**: Verify you have authorization to access the buckets
 
-## 🤝 Contribuciones
+## Contributing
 
-Las contribuciones son bienvenidas. Por favor:
+Contributions are welcome. Please:
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📝 Licencia
+## License
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-Esta herramienta está diseñada únicamente para fines educativos y de investigación. Los usuarios son responsables de cumplir con todas las leyes y regulaciones aplicables al usar esta herramienta.
+This tool is designed solely for educational and research purposes. Users are responsible for complying with all applicable laws and regulations when using this tool.
 
-## 📞 Soporte
+## Support
 
-Si tienes problemas o sugerencias:
+If you have issues or suggestions:
 
-- 📧 Abre un issue en GitHub
-- 🐛 Reporta bugs con detalles del problema
-- 💡 Sugiere nuevas características
+- Open an issue on GitHub
+- Report bugs with detailed problem information
+- Suggest new features
 
 ---
 
-**Desarrollado con ❤️ en Go**
+**Developed with Go**
