@@ -1,0 +1,185 @@
+# S3Rapthor - AWS S3 Bucket Analyzer
+# .gitignore file
+
+# ===========================================
+# DATA DIRECTORY - CRITICAL
+# ===========================================
+# Exclude all contents of the data directory
+data/
+data/*
+
+# ===========================================
+# GO BUILD ARTIFACTS
+# ===========================================
+# Binary files
+s3Rapthor
+s3Rapthor.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Go workspace file
+go.work
+
+# ===========================================
+# DEPENDENCIES
+# ===========================================
+# Vendor directory (if using vendoring)
+vendor/
+
+# ===========================================
+# IDE AND EDITOR FILES
+# ===========================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# GoLand
+.idea/
+
+# ===========================================
+# OS GENERATED FILES
+# ===========================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# ===========================================
+# LOGS AND TEMPORARY FILES
+# ===========================================
+# Log files
+*.log
+logs/
+log/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# ===========================================
+# SAMPLE AND TEST FILES
+# ===========================================
+# Sample XML files (if they contain sensitive data)
+sample.xml
+test_data/
+examples/
+
+# ===========================================
+# CONFIGURATION FILES (OPTIONAL)
+# ===========================================
+# Uncomment if you want to exclude config files
+# config.json
+# .env
+# .env.local
+# .env.production
+
+# ===========================================
+# SECURITY AND SENSITIVE FILES
+# ===========================================
+# AWS credentials (if accidentally committed)
+.aws/
+credentials
+.aws/credentials
+
+# SSH keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ===========================================
+# DOCUMENTATION BUILD
+# ===========================================
+# Documentation build artifacts
+docs/_build/
+site/
+
+# ===========================================
+# MISC
+# ===========================================
+# Coverage reports
+coverage.txt
+coverage.html
+
+# Profiling data
+*.prof
+*.pprof
+
+# Benchmark results
+bench.txt
+
+# ===========================================
+# CUSTOM PATTERNS FOR THIS PROJECT
+# ===========================================
+# Any bucket-specific files that might be generated
+*-s3_bucket.txt
+*-s3_bucket.xml
+*-s3_bucket.brf
+
+# Downloaded files from buckets
+downloaded_*
+bucket_*
